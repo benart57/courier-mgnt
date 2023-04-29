@@ -1,0 +1,116 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+article {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo {
+  width: 20%;
+}
+
+.header__input {
+  flex: 1;
+}
+
+.header__input input {
+  border: none;
+  padding: 12px 35% 12px 20px;
+  background-color: whitesmoke;
+  border-radius: 100px;
+}
+
+.header__input input::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.header__bar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  text-align: center;
+  overflow: hidden;
+  background-color: whitesmoke;
+}
+
+.world {
+  margin-top: 7px;
+}
+
+.focus {
+  width: 60%;
+  margin-top: 7px;
+}
+
+.bell {
+  margin-top: 5px;
+}
+
+.envelope {
+  width: 90%;
+  margin-top: 2px;
+}
+
+.setting {
+  width: 60%;
+  margin-top: 8px;
+}
+
+.header__img {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 8px;
+  object-position: center;
+  object-fit: cover;
+  margin-left: 20px;
+  margin-top: 4px;
+}
+
+.header__img img {
+  width: 180%;
+}
+
+.header__text h1,
+.header__text h2 {
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+aside {
+  width: 25%;
+  background-color: aqua;
+  height: 89vh;
+  position: sticky;
+}
+
+main {
+  background-color: rgb(0, 95, 63);
+  width: 100%;
+  margin-top: 8px;
+  margin-left: 8px;
+}
