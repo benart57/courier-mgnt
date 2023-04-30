@@ -29,13 +29,17 @@ article {
 .header__bar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   text-align: center;
 }
 
 .header__logo {
   border-right: 2px solid rgb(220, 220, 220);
   width: 20%;
+}
+
+.header__paragraph {
+  font-weight: 700;
 }
 
 .flex__box {
