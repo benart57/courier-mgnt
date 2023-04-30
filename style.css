@@ -16,13 +16,14 @@ body {
 
 article {
   display: flex;
+  height: 100%;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: antiquewhite;
+  border-bottom: 2px solid rgb(220, 220, 220);
 }
 
 .header__bar {
@@ -33,6 +34,7 @@ article {
 }
 
 .header__logo {
+  border-right: 2px solid rgb(220, 220, 220);
   width: 20%;
 }
 
@@ -94,15 +96,18 @@ article {
 aside {
   width: 25%;
   /* background-color: aqua; */
-  height: 89vh;
+  height: 90vh;
   position: sticky;
 }
 
 .aside {
-  border-bottom: 1px solid rgb(220, 220, 220);
-  padding-bottom: 15px;
   width: 90%;
   margin: auto;
+}
+
+.aside:not(:last-child) {
+  border-bottom: 1px solid rgb(220, 220, 220);
+  padding-bottom: 15px;
 }
 
 .aside__header {
@@ -142,8 +147,36 @@ aside {
 }
 
 main {
-  background-color: rgb(0, 95, 63);
+  background-color: whitesmoke;
   width: 100%;
-  margin-top: 8px;
-  margin-left: 8px;
+  padding: 30px 0 0 30px;
+}
+
+.main__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box__flex {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;  
+  padding: 20px 25px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+}
+
+.flex__img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: antiquewhite;
+}
+
+.box__h {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
 }
