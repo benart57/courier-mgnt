@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <title>Dashboard</title>
 </head>
+
 <body>
   <header>
     <div class="header">
@@ -16,28 +18,25 @@
       </div>
       <div class="flex__box">
         <div class="header__bar">
-        <div class="header__bar-img">
-          <img class="focus" src="icons/icons8-full-screen-30.png" alt="focus icon">
+          <div class="header__bar-img">
+            <img class="focus" src="icons/icons8-full-screen-30.png" alt="focus icon">
+          </div>
+          <div class="header__bar-img">
+            <img class="envelope" src="icons/icons8-envelope-50.png" alt="envelope icon">
+          </div>
+          <div class="header__bar-img">
+            <img class="bell" src="icons/icons8-bell-24.png" alt="bell icon">
+          </div>
         </div>
-        <div class="header__bar-img">
-          <img class="envelope" src="icons/icons8-envelope-50.png" alt="envelope icon">
+        <div class="header__bar">
+          <div class="header__img">
+            <img src="ben-sweet-2LowviVHZ-E-unsplash.jpg " alt="profile picture">
+          </div>
+          <div class="header__text">
+            <h1>John smith</h1>
+            <h2>Super Admin</h2>
+          </div>
         </div>
-        <div class="header__bar-img">
-          <img class="bell" src="icons/icons8-bell-24.png" alt="bell icon">
-        </div>
-        <div class="header__bar-img">
-          <img class="setting" src="icons/icons8-engineering-50.png" alt="setting icon">
-        </div>
-      </div>
-      <div class="header__bar">
-        <div class="header__img">
-          <img src="ben-sweet-2LowviVHZ-E-unsplash.jpg " alt="profile picture">
-        </div>
-        <div class="header__text">
-          <h1>John smith</h1>
-          <h2>Super Admin</h2>
-        </div>
-      </div>
       </div>
     </div>
   </header>
@@ -51,82 +50,62 @@
           </div>
           <h2 class="box__header">Dashboard</h2>
         </div>
-        <div class="aside__box">
-          <div class="box__img">
-            <img class="phone" src="icons/icons8-iphone-14-pro-50.png" alt="iphone icon">
-          </div>
-          <h2 class="box__header">Application</h2>
-        </div>
       </div>
       <div class="aside">
-        <h1 class="aside__header">Product</h1>
+        <h1 class="aside__header">Packages</h1>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-cube-48.png" alt="cube icon">
           </div>
-          <h2 class="box__header">Products</h2>
+
+          <h2 class="box__header" id="send_package">Send</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-envelope-50.png" alt="envelope icon">
           </div>
-          <h2 class="box__header">send product</h2>
+          <h2 class="box__header">Receives</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-orthogonal-view-48.png" alt="category icon">
           </div>
-          <h2 class="box__header">Category</h2>
+          <h2 class="box__header">Approved</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-price-tag-50.png" alt="tag icon">
           </div>
-          <h2 class="box__header">Brands</h2>
-        </div>
-        <div class="aside__box">
-          <div class="box__img">
-            <img class="dashboard" src="icons/icons8-android-16.png" alt="android icon">
-          </div>
-          <h2 class="box__header">Sub category</h2>
-        </div>
-        <div class="aside__box">
-          <div class="box__img">
-            <img class="dashboard" src="icons/icons8-menu.svg" alt="menu icon">
-          </div>
-          <h2 class="box__header">Product codes</h2>
-        </div>
-        <div class="aside__box">
-          <div class="box__img">
-            <img class="dashboard" src="icons/icons8-square-32.png" alt="square icon">
-          </div>
-          <h2 class="box__header">Released product </h2>
+          <h2 class="box__header">Pending</h2>
         </div>
       </div>
       <div class="aside">
-        <h1 class="aside__header">Store</h1>
+        <h1 class="aside__header">Customer</h1>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-import-16.png" alt="Dashboard icon">
           </div>
-          <h2 class="box__header">Box cover </h2>
+          <h2 class="box__header">New customer </h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-cube-48.png" alt="Dashboard icon">
           </div>
-          <h2 class="box__header">Envelope </h2>
+          <h2 class="box__header">List of customer </h2>
         </div>
+      </div>
+      <div class="aside">
+        <h1 class="aside__header">Users</h1>
         <div class="aside__box">
           <div class="box__img">
-            <img class="dashboard" src="icons/icons8-square-32.png" alt="Dashboard icon">
+            <img class="dashboard" src="icons/icons8-android-16.png" alt="Dashboard icon">
           </div>
-          <h2 class="box__header">New deriver </h2>
+          <h2 class="box__header">Add user</h2>
         </div>
       </div>
     </aside>
     <main>
-      <div class="main">
+      <section class="main">
         <div class="main__box">
           <div class="box__flex">
             <div class="flex__img">
@@ -205,8 +184,90 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+
+
+      <section class="sends" id="sends">
+        <section class="form_send_package">
+          <div class="container" id="send_form_container">
+            <form action="" method="POST">
+              <div class="btn">
+                <button class="closeBtn">&times;</button>
+              </div>
+              <div class="form_input">
+                <div class="input">
+                  <input type="text" placeholder=" Package Code number" required>
+                  <input type="text" placeholder=" Sender name " required>
+
+                </div>
+                <div class="input">
+                  <input type="text" placeholder=" Receiver Name" required>
+                  <input type="text" placeholder=" Pass code" required>
+                </div>
+                <div class="input">
+                  <input type="text" placeholder=" Package From" required>
+                  <input type="text" placeholder=" Package To" required>
+                </div>
+                <div class="input">
+                  <input type="submit" value="Send" name="send_package">
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="users_log_in">
+          <div class="user__container" id="user_form_container"> 
+            <form action="" method="POST">
+              <div class="btn">
+                <button class="closeBtn">&times;</button>
+              </div>
+              <div class="form_input">
+                <div class="input">
+                  <input type="text" placeholder=" First Name" required>
+                  <input type="text" placeholder=" Last Name" required>
+                </div>
+                <div class="input">
+                  <input type="text" placeholder=" Username" required>
+                  <input type="password" placeholder=" Password" required>
+                </div>
+                <div class="input">
+                  <input type="submit" value="Send" name="users">
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div class="sends__table">
+          <table class="table__list">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Sender Name</th>
+                <th>Receiver Name</th>
+                <th>Place</th>
+                <th>Classification</th>
+                <th>Transport cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Code</td>
+                <td>Sender Name</td>
+                <td>Receiver Name</td>
+                <td>Place</td>
+                <td>Classification</td>
+                <td>Transport cost</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
   </article>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
