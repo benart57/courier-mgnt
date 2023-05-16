@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link type="x-icon" rel="icon" href="icons/icons8-magento.svg">
   <title>Dashboard</title>
 </head>
 
@@ -56,34 +57,27 @@
         <h1 class="aside__header">Packages</h1>
         <div class="aside__box">
           <div class="box__img">
-            <img class="dashboard" src="icons/icons8-cube-48.png" alt="cube icon">
+            <img class="dashboard" src="icons/icons8-envelope-50.png" alt="cube icon">
           </div>
-
           <h2 class="box__header" id="send_package">Send</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
-            <img class="dashboard" src="icons/icons8-envelope-50.png" alt="envelope icon">
+            <img class="dashboard" src="icons/icons8-square-32.png" alt="envelope icon">
           </div>
           <h2 class="box__header" id="lists">Send Package Lists</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
-            <img class="dashboard" src="icons/icons8-envelope-50.png" alt="envelope icon">
-          </div>
-          <h2 class="box__header">Receives</h2>
-        </div>
-        <div class="aside__box">
-          <div class="box__img">
             <img class="dashboard" src="icons/icons8-orthogonal-view-48.png" alt="category icon">
           </div>
-          <h2 class="box__header">Approved</h2>
+          <h2 class="box__header" id="proved">Approved</h2>
         </div>
         <div class="aside__box">
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-price-tag-50.png" alt="tag icon">
           </div>
-          <h2 class="box__header">Pending</h2>
+          <h2 class="box__header" id="pending">Pending</h2>
         </div>
       </div>
       <div class="aside">
@@ -98,7 +92,7 @@
           <div class="box__img">
             <img class="dashboard" src="icons/icons8-cube-48.png" alt="Dashboard icon">
           </div>
-          <h2 class="box__header">List of customer </h2>
+          <h2 class="box__header" id="lists_customer">List of customer </h2>
         </div>
       </div>
       <div class="aside">
@@ -119,11 +113,52 @@
     </aside>
     <main>
       <section class="main">
+        <?php  
+              if(isset($_GET['update'])){
+                include('sends/send_conn.php');
+                $id= $_GET['update'];
 
-        <div class="main__box">
+                $query = "SELECT * FROM send_fill_form where send_id = '$id'";
+                $result = mysqli_query($conn, $query);
+                while($row = mysqli_fetch_array($result)) {
+                ?>
+                    <section class="form_package">
+                      <div class="container" id="form_container">
+                        <form action="sends/update.php" method="POST">
+                        
+                          <div class="form_input">
+                            <div class="input">
+                              <input type="hidden" value = "<?php echo $row['send_id']?>" name="send_id" >
+                              <input type="number" value = "<?php  echo $row['code_number']?>" name="package" placeholder=" Package Code number" required>
+                              <input type="text" value = "<?php  echo $row['sender_name']?>"  name="sender" placeholder=" Sender name " required>
+
+                            </div>
+                            <div class="input">
+                              <input type="text" value = "<?php  echo $row['receiver_name']?>"  name="receiver" placeholder=" Receiver Name" required>
+                              <input type="number" value = "<?php  echo $row['pass_code']?>"  name="passcode" placeholder=" Pass code" required>
+                            </div>
+                            <div class="input">
+                              <input type="text" value = "<?php  echo $row['package_from']?>"  name="from" placeholder=" Package from" required>
+                              <input type="text" value = "<?php  echo $row['package_to']?>"  name="pacto" placeholder=" Package to" required>
+                            </div>
+                            <div class="input">
+                              <input type="submit" value="Send" name="update_send">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </section>
+          <?php 
+                }
+              }
+                else {
+                  ?>
+                  <div class="main__box">
           <div class="box__flex">
             <div class="flex__img">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
             <div class="box__text">
               <h2 class="box__h">$370144</h2>
@@ -132,7 +167,9 @@
           </div>
           <div class="box__flex">
             <div class="flex__img">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
             <div class="box__text">
               <h2 class="box__h">$370144</h2>
@@ -141,7 +178,9 @@
           </div>
           <div class="box__flex">
             <div class="flex__img">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
             <div class="box__text">
               <h2 class="box__h">$370144</h2>
@@ -150,7 +189,9 @@
           </div>
           <div class="box__flex">
             <div class="flex__img">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
             <div class="box__text">
               <h2 class="box__h">$370144</h2>
@@ -167,7 +208,9 @@
               <p class="box__p">Customers </p>
             </div>
             <div class="flex__img2">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
           </div>
           <div class="box__flex">
@@ -176,7 +219,9 @@
               <p class="box__p">Suppliers</p>
             </div>
             <div class="flex__img2">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
           </div>
           <div class="box__flex">
@@ -185,7 +230,9 @@
               <p class="box__p">Purchase Invoice</p>
             </div>
             <div class="flex__img2">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
           </div>
           <div class="box__flex">
@@ -194,10 +241,19 @@
               <p class="box__p">Sales invoice</p>
             </div>
             <div class="flex__img2">
-              <div>&nbsp;</div>
+              <div class= "dashboard__icons">
+                <img src="icons/icons8-display-50.png" alt="display icon">
+              </div>
             </div>
           </div>
         </div>
+
+                  <?php
+
+                }
+                
+                
+                ?>
 
       </section>
       <?php
@@ -251,8 +307,30 @@
                   <input type="number" name="passcode" placeholder=" Pass code" required>
                 </div>
                 <div class="input">
-                  <input type="text" name="from" placeholder=" Package From" required>
-                  <input type="text" name="pacto" placeholder=" Package To" required>
+                  <select name="from" id="from">
+                    <?php
+                    include('sends/send_conn.php');
+                    $query = "SELECT * FROM branch";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {
+                      ?>
+                    <option value="<?php echo $row['branch_name'] ?>"><?php echo $row['branch_name'] ?></option>
+                    <?php
+                    }
+                    ?>
+                  </select>
+                  <select name="pacto" id="pacto">
+                    <?php
+                    include('sends/send_conn.php');
+                    $query = "SELECT * FROM branch";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {
+                      ?>
+                    <option value="<?php echo $row['branch_name'] ?>"><?php echo $row['branch_name'] ?></option>
+                    <?php
+                    }
+                    ?>
+                  </select>
                 </div>
                 <div class="input">
                   <input type="submit" value="Send" name="send_package">
@@ -339,6 +417,7 @@
                 <th>Pass Code</th>
                 <th>Package From</th>
                 <th>Package To</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -356,12 +435,141 @@
                 <td> <?php echo $row['pass_code'] ?></td>
                 <td> <?php echo $row['package_from'] ?></td>
                 <td> <?php echo $row['package_to'] ?></td>
+                <td> <?php echo $row['Status'] ?></td>
                 <td>
-                  <a href="sends/update.php?update=<?php echo $row['send_id'] ?>">
-                    <img class="icons" src="icons/icons8-update.svg" alt="icon">
+                  <a id="updatebtn" href="index.php?update=<?php echo $row['send_id'] ?>">
+                    <img class="ico_ns" src="icons/icons8-update.svg" alt="icon">
                   </a>
                   <a href="sends/delete.php?delete= <?php echo $row['send_id'] ?>">
-                    <img class="icons icon__delete" src="icons/icons8-delete.svg" alt="icon">
+                    <img class="ico_ns" src="icons/icons8-delete.svg" alt="icon">
+                  </a>
+                </td>
+              </tr>
+              <?php
+          }
+          ?>
+            </tbody>
+          </table>
+          </div>
+          <div class="approved__table">
+            <h1 class="Header">
+              Approved Package Lists
+            </h1>
+            <table class="table__list" border=1px>
+              <thead>
+                <tr>
+                  <th>Code Number</th>
+                  <th>Sender Name</th>
+                  <th>Receiver Name</th>
+                  <th>Pass Code</th>
+                  <th>Package From</th>
+                  <th>Package To</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                include('inc/connection.php');
+                $select = "SELECT * FROM send_fill_form where Status='Approved'";
+                $result = mysqli_query($conn, $select);
+                while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <tr>
+                  <td> <?php echo $row['code_number'] ?></td>
+                  <td> <?php echo $row['sender_name'] ?></td>
+                  <td> <?php echo $row['receiver_name'] ?></td>
+                  <td> <?php echo $row['pass_code'] ?></td>
+                  <td> <?php echo $row['package_from'] ?></td>
+                  <td> <?php echo $row['package_to'] ?></td>
+                  <td> <?php echo $row['Status'] ?></td>
+                  <td>
+                    <a href="sends/delete.php?delete=<?php echo $row['send_id'] ?>">
+                      <img class="icons" src="icons/icons8-delete.svg" alt="icon">
+                    </a>
+                  </td>
+                </tr>
+                <?php
+                }
+                ?>
+              </tbody>
+            </table>
+          </div>
+          <div class="pending__table">
+            <h1 class="Header">
+              Pending Package Lists
+            </h1>
+            <table class="table__list" border=1px>
+              <thead>
+                <tr>
+                  <th>Code Number</th>
+                  <th>Sender Name</th>
+                  <th>Receiver Name</th>
+                  <th>Pass Code</th>
+                  <th>Package From</th>
+                  <th>Package To</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                include('inc/connection.php');
+                $select = "SELECT * FROM send_fill_form where Status='Pending'";
+                $result = mysqli_query($conn, $select);
+                while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <tr>
+                  <td> <?php echo $row['code_number'] ?></td>
+                  <td> <?php echo $row['sender_name'] ?></td>
+                  <td> <?php echo $row['receiver_name'] ?></td>
+                  <td> <?php echo $row['pass_code'] ?></td>
+                  <td> <?php echo $row['package_from'] ?></td>
+                  <td> <?php echo $row['package_to'] ?></td>
+                  <td> <?php echo $row['Status'] ?></td>
+                  <td>
+                    <a href="update/pending.php?update=<?php echo $row['send_id'] ?>">
+                      <img class="icons" src="icons/icons8-update.svg" alt="icon">
+                    </a>
+                  </td>
+                </tr>
+                <?php
+                }
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>  
+        <div class="customer__table">
+          <h1 class="Header">
+            Lists of customer
+          </h1>
+          <table class="table__list" border=1px>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              include('inc/connection.php');
+              $select = "SELECT * FROM customer ";
+              $result = mysqli_query($conn, $select);
+              while($row = mysqli_fetch_assoc($result)) {
+              ?>
+              <tr>
+                <td> <?php echo $row['firstname'] ?></td>
+                <td> <?php echo $row['lastname'] ?></td>
+                <td> <?php echo $row['phone'] ?></td>
+                <td>
+                  <a href="customer/update.php?update=<?php echo $row['customer_id'] ?>">
+                    <img class="icon_s icon__size" src="icons/icons8-update.svg" alt="icon">
+                  </a>
+                  <a href="customer/delete.php?delete= <?php echo $row['customer_id'] ?>">
+                    <img class="icon_s icon__size" src="icons/icons8-delete.svg" alt="icon">
                   </a>
                 </td>
               </tr>
@@ -371,6 +579,10 @@
             </tbody>
           </table>
         </div>
+          
+
+    
+
 
       </section>
     </main>
@@ -379,8 +591,12 @@
   <script src="js/script.js"></script>
   <script src="js/user.js"></script>
   <script src="js/branch.js"></script>
+  <script src="js/approved.js"></script>
+  <script src="js/pending.js"></script>
   <script src="js/customer.js"></script>
   <script src="js/packages_lists.js"></script>
+  <script src="js/customer_lists.js"></script>
+  <script src="js/update.js"></script>
 </body>
 
 </html>
